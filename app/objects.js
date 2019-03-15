@@ -6,8 +6,14 @@ const View = function(name,template,viewSelector) {
   
   this.initView = () => {
       this.viewSelector.innerHTML = this.template;
+
+      const prev_ctrl = document.querySelector('#ctrl');
+      if(prev_ctrl !== null)
+          prev_ctrl.remove();
+
       const ctrl = document.createElement('script');
       ctrl.setAttribute('src','./../controllers/'+this.name+'.js');
+      ctrl.setAttribute('id','ctrl');
       document.body.appendChild(ctrl);
       
       history.pushState({

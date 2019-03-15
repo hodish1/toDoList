@@ -18,18 +18,40 @@ const changeView = (view) => {
 
     switch(view){
         case 'login' :
-           
+            if((isLoggedIn())){
+                fetchView('dashboard')
+                return;
+            }
+            fetchView(view)
+
         break;
 
         case 'home' :
-    
+            if(isLoggedIn()){
+                fetchView('dashboard')
+                return;
+            }
+            fetchView(view)
         break;
 
         case 'signup' :
-    
+            if(isLoggedIn()){
+                fetchView('dashboard')
+                return;
+            }
+            fetchView(view)
         break;
+
+        case 'dashboard':
+            if(!isLoggedIn()){
+                fetchView('home')
+                return;
+            }
+            fetchView(view)
+        break;
+
     } 
-    fetchView(view)
+    
 }
 const windowSettings = () => {
     window.addEventListener('popstate', function (event) {
