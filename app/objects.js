@@ -15,6 +15,15 @@ const View = function(name,template,viewSelector) {
       ctrl.setAttribute('src','./../controllers/'+this.name+'.js');
       ctrl.setAttribute('id','ctrl');
       document.body.appendChild(ctrl);
+
+      const prev_dynamic_view = document.querySelector('#dynamic_view');
+      if(prev_dynamic_view !== null)
+          prev_dynamic_view.remove();
+
+      const dynamic_view = document.createElement('script');
+      dynamic_view.setAttribute('src','./app/dynamicview.js');
+      dynamic_view.setAttribute('id','dynamic_view');
+      document.body.appendChild(dynamic_view);
       
       history.pushState({
         id: this.name
