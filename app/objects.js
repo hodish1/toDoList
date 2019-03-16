@@ -43,12 +43,23 @@ const User = function(fname,lname,email,password){
       return false;
     }
   }
+  this.lists = getCurrUser() ? getCurrUser().lists : [];
+  this.addList = (list) => {
+    this.lists.push(list);
+  }
 }
 
-const List = function(name,body,status){
+const List = function(name,deleted){
   this.name = name;
-  this.body = body;
-  this.status = status;
+  this.deleted = deleted;
+  this._dos = [];
+  this.addDo = (_do) => {
+    this._dos.push(_dos);
+  }
+}
+
+const _do = function(_do){
+  this._do = _do;
 }
 
 

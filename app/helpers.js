@@ -132,3 +132,31 @@ const getCurrUser = () => {
 const logout = () => {
     localStorage.removeItem("currUser");
 }
+
+const updateUsers = (currUser) => {
+    let users = getUsers();
+    users = users.map(user =>{
+        if(user.email === currUser.email){
+            user = currUser;
+            console.log(user);
+        }
+    });
+    setUsers(users);
+}
+
+const updateUser = (currUser) => {
+    let user = getCurrUser();
+    user = currUser;
+    localStorage.setItem("currUser" , JSON.stringify(user));
+}
+
+//List managment
+
+const createList = (name) => {
+    let list =  new List(name,false);
+    let user = getCurrUser();
+    user = new User(user.fname,user.lname, user.email,user.password);
+    user.addList(list);
+    updateUser(user);
+    updateUsers(user);//problem stringify function
+}
