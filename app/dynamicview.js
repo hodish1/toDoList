@@ -1,4 +1,4 @@
-const updateViewWithParams = () => {
+var updateViewWithParams = () => {
     const viewHtml = document.querySelector('view');
     var reg  = /\[([^\]]*)]/g;//get all [] expressions
     while (m = reg.exec(viewHtml.innerHTML)) {

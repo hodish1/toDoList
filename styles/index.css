@@ -178,6 +178,7 @@
 .dashboard-container .side-menu .inner-menu .lists ul li a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .dashboard-container .main {
