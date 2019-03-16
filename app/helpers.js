@@ -1,11 +1,11 @@
 //VIEWS MANAGMENT
-const historyList = [];
+// const historyList = [];
 const fetchView = (viewName) => {
 
     fetch(`./../views/${viewName}.html`)
         .then((response) => response.text())
         .then((html) => {
-            historyList.push(viewName);
+            // historyList.push(viewName);
             const viewSelector = document.querySelector('view');
             new View(viewName,html,viewSelector).initView();
         })
@@ -53,18 +53,18 @@ const changeView = (view) => {
     } 
     
 }
-const windowSettings = () => {
-    window.addEventListener('popstate', function (event) {
-        if (history.state && history.state.id === 'home') {
-            changeView('home');
-        }else if(history.state){
-            historyList.pop();
-            if(historyList.length -1 >= 0 ){
-                changeView(historyList[historyList.length-1]);
-            }
-        }
-    }, false);
-}
+// const windowSettings = () => {
+//     window.addEventListener('popstate', function (event) {
+//         if (history.state && history.state.id === 'home') {
+//             changeView('home');
+//         }else if(history.state){
+//             historyList.pop();
+//             if(historyList.length -1 >= 0 ){
+//                 changeView(historyList[historyList.length-1]);
+//             }
+//         }
+//     }, false);
+// }
 const goTo = (to) => {
     changeView(to);
 }

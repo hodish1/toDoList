@@ -81,7 +81,39 @@ font-family:Verdana, Geneva, Tahoma, sans-serif;
     overflow-y: scroll;
     background:salmon;
     .inner-menu{
-      
+      display:flex;
+      flex-flow: column;
+      .welcome{
+        padding: 10px 0px 10px 0px;
+        flex:1;
+        display:flex;
+        align-items: center;
+        color:white;
+        font-size: 24px;
+        justify-content: center;
+      }
+      .lists{
+        min-height: 400px;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ul{
+          display:flex;
+          flex-flow: column;
+          justify-items: center;
+          align-items: center;
+          list-style: none;
+          li{
+            margin-bottom:20px;
+            a{
+              color:white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
     }
   }
 

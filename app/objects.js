@@ -25,9 +25,9 @@ const View = function(name,template,viewSelector) {
       dynamic_view.setAttribute('id','dynamic_view');
       document.body.appendChild(dynamic_view);
       
-      history.pushState({
-        id: this.name
-      }, this.name, '?page='+this.name);
+      // history.pushState({
+      //   id: this.name
+      // }, this.name, '?page='+this.name);
     }
 }
 
