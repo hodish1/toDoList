@@ -132,3 +132,48 @@ const getCurrUser = () => {
 const logout = () => {
     localStorage.removeItem("currUser");
 }
+
+const updateUsers = (currUser) => {
+    let users = getUsers();
+    users = users.map(user => {
+        if(user.email === currUser.email){
+            console.log(currUser);
+            return currUser;
+        }
+        return user;
+    });
+    setUsers(users);
+}
+
+const updateUser = (currUser) => {
+    localStorage.setItem("currUser" , JSON.stringify(currUser));
+}
+
+
+
+//List managment
+const addListToUser = (user,list) => {
+    user.lists.push(list);
+}
+
+const createList = (name) => {
+    let list =  new List(name,false);
+    let user = getCurrUser();
+    addListToUser(user,list);
+    updateUser(user);
+    updateUsers(user);
+    renderLists();
+}
+
+const addToList = (_do , list , user) => {
+    let lists = user.lists.map((_list) => {
+        if(list.name === _list.name){
+            _list._dos.push(_do);
+        }
+        return _list;
+    })
+    user.lists = lists;
+    updateUser(user);
+    updateUsers(user);
+    renderLists();
+}
