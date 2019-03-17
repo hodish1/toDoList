@@ -24,6 +24,7 @@ fetchArea('lists');
 
 const renderLists = () => {
     const lists_inner = document.querySelector('.lists-inner');
+    lists_inner.innerHTML = '';
     const lists = getCurrUser().lists;
     for(list of lists){
 

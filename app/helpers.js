@@ -162,6 +162,7 @@ const createList = (name) => {
     addListToUser(user,list);
     updateUser(user);
     updateUsers(user);
+    renderLists();
 }
 
 const addToList = (_do , list , user) => {
@@ -174,4 +175,5 @@ const addToList = (_do , list , user) => {
     user.lists = lists;
     updateUser(user);
     updateUsers(user);
+    renderLists();
 }

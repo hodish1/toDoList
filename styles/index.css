@@ -200,6 +200,8 @@
 }
 
 .lists-wrapper .lists-inner {
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -220,8 +222,23 @@
 }
 
 .lists-wrapper .lists-inner .list-sqr .lists-sqr-inner {
-  width: 200px;
-  height: 200px;
+  overflow-y: scroll;
+  width: 300px;
+  height: 300px;
   background: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.lists-wrapper .lists-inner .list-sqr .lists-sqr-inner h3 {
+  margin-bottom: 10px;
+}
+
+.lists-wrapper .lists-inner .list-sqr .lists-sqr-inner ul {
+  list-style: none;
+}
+
+.lists-wrapper .lists-inner .list-sqr .lists-sqr-inner ul li {
+  margin-bottom: 5px;
 }
 /*# sourceMappingURL=index.css.map */
