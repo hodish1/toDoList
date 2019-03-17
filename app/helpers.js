@@ -135,28 +135,29 @@ const logout = () => {
 
 const updateUsers = (currUser) => {
     let users = getUsers();
-    users = users.map(user =>{
+    users = users.map(user => {
         if(user.email === currUser.email){
-            user = currUser;
-            console.log(user);
+            console.log(currUser);
+            return currUser;
         }
+        return user;
     });
     setUsers(users);
 }
 
 const updateUser = (currUser) => {
-    let user = getCurrUser();
-    user = currUser;
-    localStorage.setItem("currUser" , JSON.stringify(user));
+    localStorage.setItem("currUser" , JSON.stringify(currUser));
+}
+
+const addListToUser = (user,list) => {
+    user.lists.push(list);
 }
 
 //List managment
-
 const createList = (name) => {
     let list =  new List(name,false);
     let user = getCurrUser();
-    user = new User(user.fname,user.lname, user.email,user.password);
-    user.addList(list);
+    addListToUser(user,list);
     updateUser(user);
     updateUsers(user);//problem stringify function
 }

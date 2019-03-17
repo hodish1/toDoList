@@ -36,26 +36,13 @@ const User = function(fname,lname,email,password){
   this.lname = lname;
   this.email = email;
   this.password = password;
-  this.isLoggedIn = () => {
-    if(localStorage.getItem("currUser")){
-      return true;
-    }else{
-      return false;
-    }
-  }
   this.lists = getCurrUser() ? getCurrUser().lists : [];
-  this.addList = (list) => {
-    this.lists.push(list);
-  }
 }
 
 const List = function(name,deleted){
   this.name = name;
   this.deleted = deleted;
   this._dos = [];
-  this.addDo = (_do) => {
-    this._dos.push(_dos);
-  }
 }
 
 const _do = function(_do){
