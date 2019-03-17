@@ -45,10 +45,6 @@ const List = function(name,deleted){
   this._dos = [];
 }
 
-const _do = function(_do){
-  this._do = _do;
-}
-
 
 
 

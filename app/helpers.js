@@ -149,15 +149,29 @@ const updateUser = (currUser) => {
     localStorage.setItem("currUser" , JSON.stringify(currUser));
 }
 
+
+
+//List managment
 const addListToUser = (user,list) => {
     user.lists.push(list);
 }
 
-//List managment
 const createList = (name) => {
     let list =  new List(name,false);
     let user = getCurrUser();
     addListToUser(user,list);
     updateUser(user);
-    updateUsers(user);//problem stringify function
+    updateUsers(user);
+}
+
+const addToList = (_do , list , user) => {
+    let lists = user.lists.map((_list) => {
+        if(list.name === _list.name){
+            _list._dos.push(_do);
+        }
+        return _list;
+    })
+    user.lists = lists;
+    updateUser(user);
+    updateUsers(user);
 }

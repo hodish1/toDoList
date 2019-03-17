@@ -126,5 +126,29 @@ font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
 }
 
+.lists-wrapper{
+  width:100%;
+  min-height:100vh;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  .lists-inner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    width:100%;
+    .list-sqr{
+      display:flex;
+      justify-content: center;
+      align-content: center;
+      .lists-sqr-inner{
+        width:200px;
+        height:200px;
+        background:white;
+      }
+    }
 
+  }
+  
+}
 

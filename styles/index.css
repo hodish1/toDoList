@@ -184,4 +184,44 @@
 .dashboard-container .main {
   overflow-y: scroll;
 }
+
+.lists-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.lists-wrapper .lists-inner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
+}
+
+.lists-wrapper .lists-inner .list-sqr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.lists-wrapper .lists-inner .list-sqr .lists-sqr-inner {
+  width: 200px;
+  height: 200px;
+  background: white;
+}
 /*# sourceMappingURL=index.css.map */
