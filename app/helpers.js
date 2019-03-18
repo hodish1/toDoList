@@ -131,6 +131,7 @@ const getCurrUser = () => {
 
 const logout = () => {
     localStorage.removeItem("currUser");
+    changeView('home');
 }
 
 const updateUsers = (currUser) => {
