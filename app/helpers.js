@@ -174,10 +174,12 @@ const createList = (name) => {
         console.log('added')
     }else{
         console.log('already exist');
+        return false;
     }
     updateUser(user);
     updateUsers(user);
     renderLists();
+    return true;
 }
 
 const addToList = (_do , list) => {
@@ -208,5 +210,16 @@ const modalView = () => {
 
 const saveList = () => {
     const name = document.querySelector('#edit-title').value;
-    createList(name);
+    if(createList(name)){
+        const stage1 = document.querySelector('.stage.one');
+        stage1.classList.add('close');
+    }
+}
+
+const addDo = () => {
+    let user = getCurrUser();
+    const _do = document.querySelector('#add-do').value;
+    const list = user.lists[user.lists.length-1];
+    addToList(_do, list);
+    _do.value = '';
 }
