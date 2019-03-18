@@ -8,6 +8,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: auto;
 }
 
 .container {
@@ -207,7 +208,7 @@
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
-  width: 100%;
+  width: 70%;
 }
 
 .lists-wrapper .lists-inner .list-sqr {
@@ -222,12 +223,36 @@
 }
 
 .lists-wrapper .lists-inner .list-sqr .lists-sqr-inner {
+  position: relative;
   overflow-y: scroll;
   width: 300px;
   height: 300px;
   background: white;
   padding: 20px;
   text-align: center;
+}
+
+.lists-wrapper .lists-inner .list-sqr .lists-sqr-inner .edit-list {
+  width: 40px;
+  height: 40px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer !important;
+}
+
+.lists-wrapper .lists-inner .list-sqr .lists-sqr-inner .edit-list i {
+  cursor: pointer !important;
 }
 
 .lists-wrapper .lists-inner .list-sqr .lists-sqr-inner h3 {
@@ -240,5 +265,75 @@
 
 .lists-wrapper .lists-inner .list-sqr .lists-sqr-inner ul li {
   margin-bottom: 5px;
+}
+
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.edit-modal .inner-edit {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: white;
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  -webkit-transition: -webkit-transform .4s;
+  transition: -webkit-transform .4s;
+  transition: transform .4s;
+  transition: transform .4s, -webkit-transform .4s;
+}
+
+.edit-modal .inner-edit .exit-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.edit-modal .inner-edit .exit-modal i {
+  cursor: pointer;
+}
+
+.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.normal {
+  -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
 }
 /*# sourceMappingURL=index.css.map */

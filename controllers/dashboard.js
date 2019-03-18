@@ -26,10 +26,17 @@ const renderLists = () => {
     const lists_inner = document.querySelector('.lists-inner');
     lists_inner.innerHTML = '';
     const lists = getCurrUser().lists;
-    for(list of lists){
+
+
+    for( [index, list] of lists.entries()){
+        const edit_list = document.createElement('div');
+        edit_list.setAttribute('onclick',`makeEditable("#list_${index}");modalView()`);
+        edit_list.setAttribute('class','edit-list');
+        edit_list.innerHTML = `<i class="fas fa-edit"></i>`;
 
         const list_sqr = document.createElement('div');
         list_sqr.setAttribute('class','list-sqr');
+        list_sqr.setAttribute('id',"list_"+index);
 
         const lists_sqr_inner = document.createElement('div');
         lists_sqr_inner.setAttribute('class','lists-sqr-inner');
@@ -46,6 +53,7 @@ const renderLists = () => {
 
         lists_sqr_inner.appendChild(h3);
         lists_sqr_inner.appendChild(ul);
+        lists_sqr_inner.appendChild(edit_list);
         list_sqr.appendChild(lists_sqr_inner);
         lists_inner.appendChild(list_sqr);
     }

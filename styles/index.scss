@@ -7,7 +7,9 @@ margin:0;
 padding:0;
 box-sizing: border-box;
 font-family:Verdana, Geneva, Tahoma, sans-serif;
+cursor: auto;
 }
+
 .container{
   width:100%;
   height:100vh;
@@ -138,18 +140,34 @@ font-family:Verdana, Geneva, Tahoma, sans-serif;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
-    width:100%;
+    width:70%;
     .list-sqr{
       display:flex;
       justify-content: center;
       align-content: center;
       .lists-sqr-inner{
+        position: relative;
         overflow-y: scroll;
         width:300px;
         height:300px;
         background:white;
         padding:20px;
         text-align: center;
+        .edit-list{
+          width: 40px;
+          height: 40px;
+          top: 0;
+          right: 0;
+          position: absolute;
+          color: black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer !important;
+          i{
+            cursor: pointer !important;
+          }
+        }
         h3{
           margin-bottom:10px;
         }
@@ -166,3 +184,58 @@ font-family:Verdana, Geneva, Tahoma, sans-serif;
   
 }
 
+.edit-modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:rgba(0,0,0,0.7);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  visibility:hidden;
+  opacity: 0;
+  transition:all .5s;
+  .inner-edit{
+    position:relative;
+    width:400px;
+    height:400px;
+    background:white;
+    transform: scale(0.1);
+    transition: transform .4s;
+
+    .exit-modal{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      color: black;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      font-size: 25px;
+      cursor: pointer;
+      i{
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.visible {
+  opacity:1 !important;
+  visibility: visible !important;
+}
+
+.normal{
+  transform: scale(1) !important;
+}

@@ -165,7 +165,8 @@ const createList = (name) => {
     renderLists();
 }
 
-const addToList = (_do , list , user) => {
+const addToList = (_do , list) => {
+    let user = getCurrUser();
     let lists = user.lists.map((_list) => {
         if(list.name === _list.name){
             _list._dos.push(_do);
@@ -176,4 +177,16 @@ const addToList = (_do , list , user) => {
     updateUser(user);
     updateUsers(user);
     renderLists();
+}
+
+const makeEditable = (id) => {
+    const listWrapper = document.querySelector(id);
+    console.log(listWrapper.childNodes[0]);
+}
+
+const modalView = () => {
+    const list_edit_area = document.querySelector('.edit-modal');
+    list_edit_area.classList.toggle('visible');
+    const list_inner_edit_area = document.querySelector('.inner-edit');
+    list_inner_edit_area.classList.toggle('normal');
 }
