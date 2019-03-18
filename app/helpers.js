@@ -153,13 +153,27 @@ const updateUser = (currUser) => {
 
 //List managment
 const addListToUser = (user,list) => {
-    user.lists.push(list);
+
+    let exist = [];
+    exist = user.lists.filter(_list  => _list.name === list.name );
+    console.log(exist);
+    if(exist.length === 0){
+        user.lists.push(list);
+        return true;
+    }else{
+        return false;
+    }
+        
 }
 
 const createList = (name) => {
     let list =  new List(name,false);
     let user = getCurrUser();
-    addListToUser(user,list);
+    if(addListToUser(user,list)){
+        console.log('added')
+    }else{
+        console.log('already exist');
+    }
     updateUser(user);
     updateUsers(user);
     renderLists();
@@ -189,4 +203,9 @@ const modalView = () => {
     list_edit_area.classList.toggle('visible');
     const list_inner_edit_area = document.querySelector('.inner-edit');
     list_inner_edit_area.classList.toggle('normal');
+}
+
+const saveList = () => {
+    const name = document.querySelector('#edit-title').value;
+    createList(name);
 }
